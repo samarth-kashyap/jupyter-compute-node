@@ -1,0 +1,13 @@
+#!/bin/bash -l
+#PBS -N jup
+#PBS -l select=1:ncpus=8:mem=16gb
+#PBS -o /home/g.samarth/jupyterComputeNode/jupyterop.log
+#PBS -e /home/g.samarth/jupyterComputeNode/jupytererr.log
+#PBS -q small
+#PBS -l walltime=06:00:00
+export TERM=xterm
+alias latex='/usr/bin/latex'
+alias kpsewhich='/usr/bin/kpsewhich'
+alias ghostscript='/usr/bin/ghostscript'
+/home/g.samarth/anaconda3/bin/conda activate tf
+/home/g.samarth/anaconda3/bin/jupyter notebook > /home/g.samarth/jupyterComputeNode/jupout3 2> /home/g.samarth/jupyterComputeNode/juperr3
