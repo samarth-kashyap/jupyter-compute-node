@@ -1,7 +1,7 @@
 #!/bin/bash -l
 #PBS -N jup
 #PBS -l select=1:ncpus=8:mem=16gb
-#PBS -o /home/g.samarth/jupyter-compute-node/jupyterop.log
+#PBS -o /home/g.samarth/jupyter-compute-node/jupyterout.log
 #PBS -e /home/g.samarth/jupyter-compute-node/jupytererr.log
 #PBS -q small
 #PBS -l walltime=06:00:00
