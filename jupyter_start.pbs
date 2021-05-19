@@ -1,17 +1,26 @@
 #!/bin/bash -l
 #PBS -N jup
-#PBS -l select=1:ncpus=8:mem=16gb
-#PBS -o /home/g.samarth/jupyter-compute-node/jupyterout.log
-#PBS -e /home/g.samarth/jupyter-compute-node/jupytererr.log
+#PBS -l select=1:ncpus=2:mem=16gb
+#PBS -o jupyterout.log
+#PBS -e jupytererr.log
 #PBS -q small
 #PBS -l walltime=06:00:00
+echo "Current directory = $PBS_O_WORKDIR"
 export TERM=xterm
 alias latex='/usr/bin/latex'
 alias kpsewhich='/usr/bin/kpsewhich'
 alias ghostscript='/usr/bin/ghostscript'
-CONDA='/home/g.samarth/anaconda3/bin/conda'
-JUPYTER='/home/g.samarth/anaconda3/bin/jupyter'
-OUTFILE='/home/g.samarth/jupyter-compute-node/jupout'
-ERRFILE='/home/g.samarth/jupyter-compute-node/juperr'
-$CONDA activate tf
-$JUPYTER notebook > $OUTFILE 2> $ERRFILE
+OUTFILE="$PBS_O_WORKDIR/jupout"
+ERRFILE="$PBS_O_WORKDIR/juperr"
+
+echo "Loading anaconda3 and activating the env:helio"
+module load anaconda3
+conda activate helio
+echo "Printing out the location of some programs:"
+echo "to check if the right environment is active."
+echo "shell = $SHELL"
+echo "conda = `which conda`"
+echo "jupyter = `which jupyter`"
+echo "python = `which python`"
+
+jupyter notebook > $OUTFILE 2> $ERRFILE
