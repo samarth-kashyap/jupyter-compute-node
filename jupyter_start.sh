@@ -4,6 +4,8 @@
 JUPDIR="/home/g.samarth/jupyter-compute-node"
 rm $JUPDIR/juperr
 rm $JUPDIR/jupout
+touch $JUPDIR/juperr
+touch $JUPDIR/jupout
 
 # Submitting job to run jupyter notebook
 JOBIDFULL=`qsub $JUPDIR/jupyter_start.pbs`
@@ -11,12 +13,13 @@ JOBIDFILE="$JUPDIR/jupyter_nb_jobid"
 IPFILE="$JUPDIR/jupyter_nb_ipaddr"
 
 echo "Waiting for Jupyter notebook to start ..."
-while [ -s $JUPDIR/juperr ]; do
+while ! [ -s $JUPDIR/juperr ]; do
     echo "`ls -artlh $JUPDIR/juperr`"
     sleep 2
 done
 
 sleep 5
+echo "Jupyter notebook started"
 echo "`ls -artlh $JUPDIR/juperr`"
 # Getting the jobID and the ipaddress of node
 JOBID=`echo $JOBIDFULL | awk -F. '{print $1}'`
