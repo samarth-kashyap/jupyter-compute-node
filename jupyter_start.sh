@@ -2,15 +2,22 @@
 
 # Removing the temporary files (temperr contains the IP Address)
 JUPDIR="/home/g.samarth/jupyter-compute-node"
-#rm $JUPDIR/juperr
-#rm $JUPDIR/jupout
+rm $JUPDIR/juperr
+rm $JUPDIR/jupout
 
 # Submitting job to run jupyter notebook
 JOBIDFULL=`qsub $JUPDIR/jupyter_start.pbs`
 JOBIDFILE="$JUPDIR/jupyter_nb_jobid"
 IPFILE="$JUPDIR/jupyter_nb_ipaddr"
-sleep 10
 
+echo "Waiting for Jupyter notebook to start ..."
+while [ -s $JUPDIR/juperr ]; do
+    echo "`ls -artlh $JUPDIR/juperr`"
+    sleep 2
+done
+
+sleep 5
+echo "`ls -artlh $JUPDIR/juperr`"
 # Getting the jobID and the ipaddress of node
 JOBID=`echo $JOBIDFULL | awk -F. '{print $1}'`
 IPADDR=`awk '/http/ {print $4}' $JUPDIR/juperr | cut -c 8- | sed 's/.$//' | rev | cut -c 6- | rev`
@@ -18,3 +25,5 @@ IPADDR=`awk '/http/ {print $4}' $JUPDIR/juperr | cut -c 8- | sed 's/.$//' | rev 
 # Writing jobID in file (to be able to delete job later)
 echo "$JOBID" > $JOBIDFILE
 echo "$IPADDR" > $IPFILE
+echo "jobID = $JOBID"
+echo "IPaddr = $IPADDR"
