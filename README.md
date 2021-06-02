@@ -16,4 +16,9 @@ c.NotebookApp.password = u'sha1:52ccaeeff1e4:99a66eiasdfasdfadsfad6ea290asdfsdfe
 ```
 Run the script `jupyter_start.sh` using
 ```./jupyter.sh```
-to start the Jupyter notebook. The script prints out the IP address on which jupyter notebook is being run. The default port can be set up in the jupyter configuration file.
+to start the Jupyter notebook. The script prints out the IP address on which jupyter notebook is being run. 
+
+Note down the IP address (a.b.c.d) and open the terminal on your computer. Port forward using
+```ssh -N -n -L 127.0.0.1:8889:a.b.c.d:8879 username@hostname &```
+
+Port forwarding is now setup. Open the browser and go to http://127.0.0.1:8889/lab and you should get a password prompt for the jupyter notebook!
