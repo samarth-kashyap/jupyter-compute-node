@@ -3,7 +3,7 @@
 #PBS -l select=1:ncpus=2:mem=16gb
 #PBS -o jupyterout.log
 #PBS -e jupytererr.log
-#PBS -q small
+#PBS -q long
 #PBS -l walltime=06:00:00
 echo "Current directory = $PBS_O_WORKDIR"
 export TERM=xterm
