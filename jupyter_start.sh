@@ -12,10 +12,10 @@ JOBIDFULL=`qsub $JUPDIR/jupyter_start.pbs`
 JOBIDFILE="$JUPDIR/jupyter_nb_jobid"
 IPFILE="$JUPDIR/jupyter_nb_ipaddr"
 
-echo -n "Waiting for Jupyter notebook to start ..."
+echo -n "Initializing Jupyter notebook ..."
 while ! [ -s $JUPDIR/juperr ]; do
 #    echo "`ls -artlh $JUPDIR/juperr`"
-    echo -n "..."
+    echo -n ".."
     sleep 2
 done
 
