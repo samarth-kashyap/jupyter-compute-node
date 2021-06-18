@@ -4,7 +4,7 @@
 #PBS -o jupyterout.log
 #PBS -e jupytererr.log
 #PBS -q long
-#PBS -l walltime=06:00:00
+#PBS -l walltime=15:00:00
 echo "Current directory = $PBS_O_WORKDIR"
 export TERM=xterm
 alias latex='/usr/bin/latex'
