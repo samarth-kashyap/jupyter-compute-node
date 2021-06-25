@@ -1,10 +1,10 @@
 #!/bin/bash -l
 #PBS -N jup
-#PBS -l select=1:ncpus=2:mem=16gb
+#PBS -l select=1:ncpus=1:mem=6gb
 #PBS -o jupyterout.log
 #PBS -e jupytererr.log
-#PBS -q long
-#PBS -l walltime=15:00:00
+#PBS -q small
+#PBS -l walltime=04:00:00
 echo "Current directory = $PBS_O_WORKDIR"
 export TERM=xterm
 alias latex='/usr/bin/latex'
