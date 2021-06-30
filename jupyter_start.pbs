@@ -1,6 +1,6 @@
 #!/bin/bash -l
 #PBS -N jup
-#PBS -l select=1:ncpus=1:mem=6gb
+#PBS -l select=1:ncpus=1:mem=4gb
 #PBS -o jupyterout.log
 #PBS -e jupytererr.log
 #PBS -q small
@@ -13,14 +13,7 @@ alias ghostscript='/usr/bin/ghostscript'
 OUTFILE="$PBS_O_WORKDIR/jupout"
 ERRFILE="$PBS_O_WORKDIR/juperr"
 
-echo "Loading anaconda3 and activating the env:helio"
-module load anaconda3
-conda activate helio
-echo "Printing out the location of some programs:"
-echo "to check if the right environment is active."
 echo "shell = $SHELL"
-echo "conda = `which conda`"
-echo "jupyter = `which jupyter`"
 echo "python = `which python`"
 
 jupyter notebook > $OUTFILE 2> $ERRFILE

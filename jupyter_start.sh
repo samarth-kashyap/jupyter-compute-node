@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Removing the temporary files (temperr contains the IP Address)
-JUPDIR="/home/g.samarth/jupyter-compute-node"
+JUPDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 rm $JUPDIR/juperr
 rm $JUPDIR/jupout
 touch $JUPDIR/juperr
