@@ -19,8 +19,8 @@ The `port` is set to `8879`. This can be changed according to convenience.
 Note that `password` needs to be replaced with the hased value of your own password as described in the "setting up" section.
 
 ### Starting the notebook server
-Run the script `jupyter_start.sh` using
-```./jupyter.sh```
+Run the script `jpstart.sh` using
+```./jpstart.sh```
 to start the Jupyter notebook. The script prints out the IP address on which jupyter notebook is being run. The script prompts you to choose the type of notebook instance. 
 1. Running on compute cluster using PBS
 2. Running on compute cluster using slurm
@@ -35,3 +35,6 @@ Note down the IP address (a.b.c.d) and open the terminal on your computer. Port 
 ``` ssh -N -n -L 127.0.0.1:8889:a.b.c.d:8879 username@hostname &```
 
 Port forwarding is now setup. Open the browser and go to http://127.0.0.1:8889/lab and you should get a password prompt for the jupyter notebook!
+
+### Killing the notebook
+To kill the notebook, login to your cluster/remote computer. `cd` to the `jupyter-compute-node` directory and run `./jpkill.sh`.
