@@ -1,2 +1,3 @@
-jupyter lab >~/jupyter-compute-node/jupout 2>~/jupyter-compute-node/juperr &
+JUPDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+jupyter lab >$JUPDIR/jupout 2>$JUPDIR/juperr &
 echo "$!"
