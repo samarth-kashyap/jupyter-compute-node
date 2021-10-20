@@ -32,7 +32,7 @@ if [ $INSTANCETYPE == '1' ]; then
 	JOBIDFULL=`qsub $JUPDIR/jupyter_start.pbs`
 elif [ $INSTANCETYPE == '3' ]; then
 	echo "Running remote jupyter instance on desktop"
-	JOBIDFULL=`sh $JUPDIR/remote_jupyter.sh`
+	JOBIDFULL=`bash $JUPDIR/remote_jupyter.sh`
 else
 	echo "Running jupyter instance on compute cluster (slurm)"
 	echo "Instance type not found"
