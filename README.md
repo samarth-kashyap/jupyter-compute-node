@@ -2,7 +2,7 @@
 This script allows the creation of a jupyter notebook on a compute node. The server can then be accessed through port forwarding.
 
 Before running the jupyter notebook on a compute node, the first step is to configure the jupyter notebook to run jupyter without opening the browser.
-Follow the steps here to generate the notebook configuration file and set a password to the notebook. [https://jupyter-notebook.readthedocs.io/en/stable/public_server.html]
+Follow the steps here to generate the notebook configuration file and set a password to the notebook. [link](https://jupyter-notebook.readthedocs.io/en/stable/public_server.html)
 
 Edit the `jupyter_notebook_config.py` file and add the following lines.
 Note: Replace the last line with the hash of your own password as mentioned in the link above.
