@@ -2,6 +2,7 @@
 
 # Removing the temporary files (temperr contains the IP Address)
 JUPDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+echo "Jupyter directory = $JUPDIR"
 rm $JUPDIR/juperr
 rm $JUPDIR/jupout
 touch $JUPDIR/juperr
