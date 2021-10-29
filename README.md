@@ -3,7 +3,7 @@ This script allows the creation of a jupyter notebook server on a compute node o
 
 ### Setting up
 Before running the jupyter notebook on a compute node, the first step is to configure the jupyter notebook to run jupyter without opening the browser.
-Follow the steps here to generate the notebook configuration file and set a password to the notebook. [link](https://jupyter-notebook.readthedocs.io/en/stable/public_server.html)
+Follow the steps [here](https://jupyter-notebook.readthedocs.io/en/stable/public_server.html) to generate the notebook configuration file and set a password to the notebook. 
 
 Edit the `~/.jupyter/jupyter_notebook_config.py` file and add the following lines.
 ```
