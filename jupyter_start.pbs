@@ -16,4 +16,5 @@ ERRFILE="$PBS_O_WORKDIR/juperr"
 echo "shell = $SHELL"
 echo "python = `which python`"
 
+nohup /mnt/disk2/samarth/Downloads/ngrok http 8879 &> ngrok.log &
 jupyter notebook > $OUTFILE 2> $ERRFILE
